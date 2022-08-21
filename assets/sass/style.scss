@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2? family= Poppins:wght@400;600 & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+$Violet: hsl(257, 40%, 49%);
+$Soft-Magenta: hsl(300, 69%, 71%);
+$withe: #ffff;
+
+$unitRem: 2rem;
+@function size($value){
+    @return $value * $unitRem;
+}
+@mixin fontEncabezado {
+    font-family: 'Poppins', sans-serif;
+}
+@mixin reset {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*{
+    @include reset()
+}
+a{
+    text-decoration: none;
+    color: $withe;
+}
+img{
+    width: 100%;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: $Violet;
+    color: $withe;
+    padding: $unitRem;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/bg-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+.header{
+    width: 100%;
+    margin-bottom: $unitRem;
+}
+.header--logo{
+    width: size(4);
+}
+.container--img{
+    width: 100%;
+    margin-bottom: size(2.5);
+    max-width: 841px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container--home{
+    text-align: center;
+    margin-bottom: size(4);
+}
+.home--tittle{
+    font-weight: bolder;
+    margin-bottom: 1rem;
+}
+
+.home--info{
+    line-height: 1.5rem;
+    margin-bottom: size(2);
+}
+.btn--register{
+    padding: .8rem size(2);
+    border-radius: $unitRem;
+    border: 0;
+    color: $Violet;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
+    &:hover{
+        color: $withe;
+        background-color: $Soft-Magenta;
+    }
+}
+.footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    border: 1px solid $withe;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    padding: 0.5rem;
+    &:hover{
+        border: 1px solid $Soft-Magenta;
+    }
+}
+.bx{
+    font-size: 1rem;
+    &:hover{
+        color: $Soft-Magenta;
+    }
+}
+@media screen and (min-width: 980px) {
+    body{
+        background-image: url(../images/bg-desktop.svg);
+        background-position: top center;
+        background-size: cover;
+        padding: $unitRem size(3);
+    }
+    .main{
+        display: flex;
+        flex-direction: row;
+        column-gap: $unitRem;
+        height: 80%;
+        justify-content: center;
+        align-items: center;
+    }
+    .home--info{
+        padding: 0 size(2) 0 0;
+    }
+    .container--home{
+        text-align: center;
+        margin-bottom: size(4);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: $unitRem;
+        row-gap: 1rem;
+    }
+    .home--tittle{
+        font-size: size(1);
+    }
+    .footer{
+        justify-content: flex-end;
+    }
+}
